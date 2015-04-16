@@ -1,0 +1,69 @@
+var express = require('express');
+var exphbs  = require('express-handlebars');
+var Spaza = require('./spaza');
+ 
+var app = express();
+var nelisa = new Spaza();
+ 
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+var products = Nelisa.productList('./Nelisa Sales History.csv');
+var mostpop = nelisa.mostPopularPdt(products)['Name'];
+var leastpop = nelisa.leastPopularPdt(products)['Name'];
+var mostcat = nelisa.mostPopularCat();
+var leastcat = nelisa.leastPopularCat();
+
+ 
+app.get('/', function (req, res) {
+    res.render('home');
+});
+
+app.get('/suppliers', function (req, res) {
+    res.render('suppliers', {
+
+    });
+});
+
+app.get('/products', function (req, res) {
+    res.render('products', {
+     mostPopularProd : mostpop,
+     leastPopularProd: leastpop,
+     mostPopularCateg: mostcat,
+     leastPopularCateg: leastcat
+    });
+});
+
+app.get('/sales', function (req, res) {
+    res.render('sales', {
+
+    });
+});
+ 
+ app.get('/profits', function (req, res) {
+    res.render('profits', {
+
+    });
+});
+
+ app.get('/other', function (req, res) {
+    res.render('other', {
+      
+    });
+});
+app.listen(3000);
+
+  /* // create a route
+   app.get('/', function (req, res) {
+     res.send('Hello World!');
+   });
+
+   //start the server
+   var server = app.listen(3000, function () {
+
+     var host = server.address().address;
+     var port = server.address().port;
+
+     console.log('Example app listening at http://%s:%s', host, port);
+
+   });*/
