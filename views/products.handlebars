@@ -1,19 +1,14 @@
 
 
-<h3>Most Popular product</h3>
-{{mostPopularProd.Name}}
-{{mostPopularProd.Quantity}}
+<div class='list'><li><h3>Most Popular product</h3></li></div>
+	<div class='list-item'>{{mostPopularProd.Name}}{{mostPopularProd.Quantity}}</div>
 
-<h3>Least Popular product</h3>
-{{{leastPopularProd.Name}}}
-{{{leastPopularProd.Quantity}}}
+<div class='list'><li><h3>Least Popular product</h3></li><div>
+	<div class='list-item'>{{{leastPopularProd.Name}}}{{{leastPopularProd.Quantity}}}</div>
 
-<h3>Most Popular category</h3>
-{{{mostPopularCateg.Name}}}
-{{{mostPopularCateg.Quantity}}}
 
-<h3>Least Popular category</h3>
-{{{leastPopularCateg.Name}}}
-{{{leastPopularCateg.Quantity}}}
+<div class='list'><li><h3>Most Popular category</h3></li></div>
+	<div class='list-item'>{{{mostPop.ItemName}}} {{{mostPop.UnitsSold}}}<div>
 
-{{{body}}}
+<div class='list'><li><h3>Most Popular category</h3></li></div>
+	<div class='list-item'> {{{leastPop.ItemName}}}{{{leastPop.UnitsSold}}}<div>

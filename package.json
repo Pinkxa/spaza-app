@@ -13,6 +13,7 @@
   "author": "Aya&Pretty",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "express": "~4.12.3"
+    "express": "~4.12.3",
+    "express-handlebars": "~2.0.0"
   }
 }

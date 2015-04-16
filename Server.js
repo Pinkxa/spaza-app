@@ -38,8 +38,9 @@ app.get('/products', function (req, res) {
     res.render('products', {
      mostPopularProd : mostpop,
      leastPopularProd: leastpop,
-     mostPopularCateg: mostcat,
-     leastPopularCateg: leastcat
+     mostPop: mostcat,
+     leastPop: leastcat,
+     a:'v'
     });
 });
 
