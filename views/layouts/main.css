@@ -1,0 +1,8 @@
+.list{
+	border:2px solid lightgrey;
+	background:red;
+	box-shadow: 1px 1px 10px 1px;
+	width: 40%;
+	height:10%;
+
+}

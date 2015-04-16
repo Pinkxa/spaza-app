@@ -1,25 +1,18 @@
 var express = require('express');
 var exphbs  = require('express-handlebars');
 var Spaza = require('./spaza');
- 
+var nelisa = new Spaza(); 
+
 var app = express();
-var nelisa = new Spaza();
- 
+app.use(express.static('public'))
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-var products = nelisa.productList('./Nelisa Sales History.csv');
-var mostpop = nelisa.mostPopularPdt(products);
-var leastpop = nelisa.leastPopularPdt(products);
-var mostcat = nelisa.mostPopularCat();
-  console.log("*****"+mostcat.ItemName +" "+ mostcat.UnitsSold)
-var leastcat = nelisa.leastPopularCat();
-  console.log("*****"+leastcat.ItemName +" "+ leastcat.UnitsSold)
 
-app.get('/', function (req, res) {
-    res.render('home')
-});
- 
+
+app.get('/',function(req,res){
+    res.render('home');
+})
 app.get('/spaza', function (req, res) {
     res.render('spaza', {
       title : "Nelisa's Spaza Shop",
@@ -33,6 +26,11 @@ app.get('/suppliers', function (req, res) {
 
     });
 });
+var products = nelisa.productList('./Nelisa Sales History.csv');
+var mostpop = nelisa.mostPopularPdt(products);
+var leastpop = nelisa.leastPopularPdt(products);
+var mostcat = nelisa.mostPopularCat();
+var leastcat = nelisa.leastPopularCat();
 
 app.get('/products', function (req, res) {
     res.render('products', {
@@ -61,19 +59,4 @@ app.get('/sales', function (req, res) {
       
     });
 });
-app.listen(3000);
-
-  /* // create a route
-   app.get('/', function (req, res) {
-     res.send('Hello World!');
-   });
-
-   //start the server
-   var server = app.listen(3000, function () {
-
-     var host = server.address().address;
-     var port = server.address().port;
-
-     console.log('Example app listening at http://%s:%s', host, port);
-
-   });*/
+app.listen(3000)
