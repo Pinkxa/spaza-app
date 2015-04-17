@@ -1,4 +1,6 @@
 var fs = require('fs');
+var source = require('./source')
+var imageSource = new source();
 var shopItem = require('./shopItem')
   module.exports = function(){
 
@@ -66,8 +68,9 @@ var shopItem = require('./shopItem')
                  
                 }
              }
-               
-             mostPopularProduct={Name : name , Quantity : max};
+             var img = imageSource.getImage(name);
+             
+             mostPopularProduct={Name : name , Quantity : max ,Image :img};
            
              return mostPopularProduct;
     };
@@ -107,8 +110,10 @@ var shopItem = require('./shopItem')
                 
                 }
              }
-               
-             leastPopularProduct={Name : name , Quantity : min};
+             var img = imageSource.getImage(name);
+             console.log(img);
+
+             leastPopularProduct={Name : name , Quantity : min ,Image :img};
            
              return leastPopularProduct;
     };

@@ -37,8 +37,8 @@ app.get('/products', function (req, res) {
      mostPopularProd : mostpop,
      leastPopularProd: leastpop,
      mostPop: mostcat,
-     leastPop: leastcat,
-     a:'v'
+     leastPop: leastcat
+     
     });
 });
 
