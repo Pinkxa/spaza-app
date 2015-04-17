@@ -1,28 +1,36 @@
 .btn-group-vertical{
 	display: block;
 	margin-left:30%;
-	border:2px solid lightgrey;
+	margin-top: 1%;
+	border:2px solid lblack;
 	border-radius: 10vw;
-	background:skyblue;
+	background:#787878;
 	box-shadow: 1px 1px 10px 1px;
 	width: 40%;
 	height:10%;
 	list-style: none;
 	text-align: center;
+	color: #FFFFCC;
 
 } 
-#small{color: white;}
+
 .list-item{
-	background:lightgrey;
+	background:tomato;
 	width: 35%;
 	height: auto;
     padding: 5%;
     display: none;
     margin-left: 32%;
+    margin-top: -3%;
+    border-radius: 15%; 
+    font-weight: 900;
+    font-size: 140%;
 }
 .list-item img{
 	max-width: 40%;
 	max-height: 30%;
+	border:2px solid grey;
+	padding: 1%;
 }
 .wide{
 	background: url('sp2.jpg');
@@ -30,5 +38,24 @@
 	top:-100%;
 	height:60%;
 	margin-top: -3%;
-	padding:8%;
+	padding:10.5%;
+}
+.wide h1{
+	color: #787878;
+	width:35%;
+	text-shadow:2px 2px black;
+	font-size:280%;
+	font-weight: 900;
+	margin-left: -5%;
+	margin-top: -5%;
+	
+
+	
+
+}
+body{
+
+	background: url('back.jpg');
+	background-size: cover;
+
 }
