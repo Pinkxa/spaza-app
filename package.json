@@ -1,10 +1,11 @@
 {
   "name": "spaza-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Nelisa's Spaza Shop",
   "main": "spaza.js",
   "scripts": {
-    "test": "spaza_test.js"
+    "test": "spaza_test.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,12 @@
   "dependencies": {
     "express": "~4.12.3",
     "express-handlebars": "~2.0.0"
-  }
+  },
+  "devDependencies": {},
+ "engines": {
+"node":"v0.10.25"
+},
+  "keywords": [
+    "Nelisa"
+  ]
 }
