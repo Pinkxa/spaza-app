@@ -2,16 +2,33 @@ var express = require('express');
 var exphbs  = require('express-handlebars');
 var Spaza = require('./spaza');
 var nelisa = new Spaza(); 
-
 var app = express();
+var source = require('./source')
+source =new source();
+
+
 app.use(express.static('public'))
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+var products = nelisa.productList('./Nelisa Sales History.csv');
+var mostpop = nelisa.mostPopularPdt(products);
+var leastpop = nelisa.leastPopularPdt(products);
+var mostcat = nelisa.mostPopularCat();
+var leastcat = nelisa.leastPopularCat();
+//console.log('\n\n'+JSON.stringify(products)+'\n\n')
 
-
+var int = Math.floor(Math.random()*(products.length - 1)*1);
+var product = products[int]
+console.log('#### ->'+product.price.replace(',','.')+"+"+product.unitsSold)
 app.get('/',function(req,res){
-    res.render('home');
+    res.render('home',{
+        Name:product.name,
+        Price:product.price,
+        Sold:product.unitsSold,
+        Total:(parseInt(product.price.replace(',','.'))*product.unitsSold),
+        Image:source.getImage(product.name)
+    });
 })
 app.get('/spaza', function (req, res) {
     res.render('spaza', {
@@ -26,11 +43,6 @@ app.get('/suppliers', function (req, res) {
 
     });
 });
-var products = nelisa.productList('./Nelisa Sales History.csv');
-var mostpop = nelisa.mostPopularPdt(products);
-var leastpop = nelisa.leastPopularPdt(products);
-var mostcat = nelisa.mostPopularCat();
-var leastcat = nelisa.leastPopularCat();
 
 app.get('/products', function (req, res) {
     res.render('products', {

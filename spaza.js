@@ -25,7 +25,7 @@ var shopItem = require('./shopItem')
                  
                   var Product  = new shopItem()
                   Product.name = columns[2];
-                  Product.price =columns[4];
+                  Product.price =columns[4].substring(1);
                   Product.unitsSold =columns[3]
                   listOfProducts.push(Product)
                 }
@@ -69,7 +69,8 @@ var shopItem = require('./shopItem')
                 }
              }
              var img = imageSource.getImage(name);
-             
+            
+             console.log("*"+img);
              mostPopularProduct={Name : name , Quantity : max ,Image :img};
            
              return mostPopularProduct;
@@ -111,7 +112,7 @@ var shopItem = require('./shopItem')
                 }
              }
              var img = imageSource.getImage(name);
-             console.log(img);
+             console.log("**"+img);
 
              leastPopularProduct={Name : name , Quantity : min ,Image :img};
            
@@ -160,10 +161,12 @@ var shopItem = require('./shopItem')
         }
 
       }
-
+      var img = imageSource.getImage(maxName);
+             console.log("***"+img);
       var maxMap ={}
       maxMap["ItemName"] = maxName
       maxMap["UnitsSold"] = max
+      maxMap['Image']=img
       return maxMap;
 
     };
@@ -208,10 +211,12 @@ var shopItem = require('./shopItem')
         }
 
       }
-
+      var img = imageSource.getImage(minName);
+             console.log("****"+img);
       var minMap ={}
       minMap["ItemName"] = minName
       minMap["UnitsSold"] = min
+      minMap['Image']=img
       return minMap;
 
     };

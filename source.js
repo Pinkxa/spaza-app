@@ -48,8 +48,44 @@ module.exports = function(){
 					case 'Mixed Sweets 5s':
 						return "mixed_sweets.jpg";
 						break;
-					case 'Bananas':
+					case 'Rose (plastic)':
 						return "bananas.jpg";
+						break;
+					case 'Heart Chocolates':
+						return "bananas.jpg";
+						break;
+					case 'Valentine Cards':
+						return "bananas.jpg";
+						break;
+					case 'Dairy Products':
+						return "dairy.jpg";
+						break;
+					case 'Bakery':
+						return "bakery.jpg";
+						break;
+					case 'Canned Food':
+						return "canned-foods.jpg";
+						break;
+					case 'Cold Beverages':
+						return "beverages.jpg";
+						break;
+					case 'Bulk':
+						return "bananas.jpg";
+						break;
+					case 'Soup':
+						return "bananas.jpg";
+						break;
+					case 'Cosmetics':
+						return "Cosmetics.jpg.jpg";
+						break;
+					case 'Fruit':
+						return "fruit.jpg";
+						break;
+					case 'Confectionery':
+						return "Confectionery.jpg";
+						break;
+					case 'Valentine Goodies':
+						return "valentines.jpg";
 						break;
 					default:
 						return 'default.jpg'}

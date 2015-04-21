@@ -59,3 +59,45 @@ body{
 	background-size: cover;
 
 }
+.row{
+	margin-top: -3%;
+}
+.col-md-6{
+	opacity: .9;
+	margin-top: -15%;
+	background:tomato;
+	height: 55%;
+	padding:2%;	
+
+}
+.col-md-4{
+	opacity: .9;
+	margin-top: 0.1%;
+	height: 85%;
+	
+	background:orange;
+}
+#wrapper{
+	position:absolute;
+	margin-top: -8%;
+	margin-left: 60%
+}
+.glyphicon-chevron-right{
+	
+	position: absolute;
+	margin-left: 50%;
+	margin-top: -50%;
+	color:red;
+	width:20vw;
+	height:20vw;
+	font-size: 12vw;
+}
+.glyphicon-chevron-left{
+	position: absolute;
+	margin-left: -230%;
+	margin-top: -50%;
+	color:red;
+	width:20vw;
+	height:20vw;
+	font-size: 12vw;
+}
