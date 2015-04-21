@@ -49,7 +49,7 @@ module.exports = function(){
 						return "mixed_sweets.jpg";
 						break;
 					case 'Rose (plastic)':
-						return "bananas.jpg";
+						return "rose.jpg";
 						break;
 					case 'Heart Chocolates':
 						return "bananas.jpg";
