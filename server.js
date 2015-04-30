@@ -5,8 +5,21 @@ var nelisa = new Spaza();
 var app = express();
 var source = require('./source')
 source =new source();
+mysql = require('mysql');
+myConnection = require('express-myconnection');
 
+database = require('./database');
 
+var dbOptions = {
+    host : "localhost",
+    user : "root",
+    password : "linokuhlekamva",
+    port : 3306,
+    database : "Nelisa"
+
+}
+
+app.use(myConnection(mysql, dbOptions, 'single'));
 app.use(express.static('public'))
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -71,4 +84,7 @@ app.get('/sales', function (req, res) {
       
     });
 });
+
+ app.get('/product_list', database.products)
+
 app.listen(3000)

@@ -15,12 +15,14 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "express": "~4.12.3",
-    "express-handlebars": "~2.0.0"
+    "express-handlebars": "~2.0.0",
+    "mysql": "~2.6.2",
+    "express-myconnection": "~1.0.4"
   },
   "devDependencies": {},
- "engines": {
-"node":"v0.10.25"
-},
+  "engines": {
+    "node": "v0.10.25"
+  },
   "keywords": [
     "Nelisa"
   ]
