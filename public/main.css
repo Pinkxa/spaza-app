@@ -62,7 +62,6 @@ body{
 
 }
 
-@media screen and (min-width: 1200px) {
 .row{
 	margin-top: -3%;
 }
@@ -86,7 +85,7 @@ body{
 	margin-top: -8%;
 	margin-left: 60%
 }
-}
+
 
 .glyphicon-chevron-right{
 	
@@ -130,28 +129,4 @@ body{
 }
 .glyphicon-heart-empty{
 	font-size: 150%;
-}
-
-.row{
-	margin-top: -3%;
-}
-.col-md-6{
-	opacity: .9;
-	margin-top: -15%;
-	background:tomato;
-	height: 55%;
-	padding:2%;	
-
-}
-.col-md-4{
-	opacity: .9;
-	margin-top: 0.1%;
-	height: 85%;
-	
-	background:orange;
-}
-#wrapper{
-	position:absolute;
-	margin-top: -8%;
-	margin-left: 60%
 }

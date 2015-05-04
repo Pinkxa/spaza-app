@@ -19,22 +19,13 @@
 -- Table structure for table `categories`
 --
 
-DROP TABLE IF EXISTS `categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` tinytext,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
 --
 -- Dumping data for table `categories`
 --
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+INSERT INTO 'categories' VALUES ('Dairy'),('Confectionery'),('Bakery'),('Cosmetics'),('Fruit'),('Bulk'),('Canned food'),('Valentines goodies'),('Cold beverages'),('Soup'); 
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -42,23 +33,13 @@ UNLOCK TABLES;
 -- Table structure for table `products`
 --
 
-DROP TABLE IF EXISTS `products`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `products` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` tinytext,
-  `cat_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
 --
 -- Dumping data for table `products`
 --
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES('Milk 1l'), ('Imasi'),('Bread'),('Chakalaka Can'),('Gold Dish Vegetable Curry Can'),('Fanta 500ml'),('Coke 500ml'),('Cream Soda 500ml'),('Iwisa Pap 5kg'),('Top Class Soy Mince'),('Shampoo 1 litre'),('Soap Bar'),('Bananas - loose'),('Apples - loose'),('Mixed Sweets 5s'),('Heart Chocolates'),('Valentine Cards'),('Rose (plastic)')
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,20 +47,7 @@ UNLOCK TABLES;
 -- Table structure for table `sales`
 --
 
-DROP TABLE IF EXISTS `sales`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sales` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `date` date DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
-  `products_id` int(11) DEFAULT NULL,
-   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
 -- Dumping data for table `sales`
 --
 

@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel='stylesheet' href='main.css'> 
-  
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>-->
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -42,7 +42,21 @@
       </div>
 </nav>
 
+<!--<script type="text/javascript">
+  $(document).ready(function(){
+    $(window).bind("resize", resizeWindow);
+    function resizeWindow(e){
+      var newWindowWidth = $(window).width();
 
+      // If width width is below 600px, switch to the mobile stylesheet
+      if(newWindowWidth < 600){        
+      $("link[rel=stylesheet]").attr({href : "mobile.css"});       
+       }       
+       // Else if width is above 600px, switch to the large stylesheet       
+       else if(newWindowWidth > 600){
+        $("link[rel=stylesheet]").attr({href : "style.css"});
+      }
+    }-->
 
 {{{body}}}
 
