@@ -25,7 +25,7 @@
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO 'categories' VALUES ('Dairy'),('Confectionery'),('Bakery'),('Cosmetics'),('Fruit'),('Bulk'),('Canned food'),('Valentines goodies'),('Cold beverages'),('Soup'); 
+INSERT INTO 'categories' VALUES ('Dairy'),('Confectionery'),('Bakery'),('Cosmetics'),('Fruit'),('Bulk'),('Canned food'),('Valentines goodies'),('Cold beverages'),('Soup') 
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
