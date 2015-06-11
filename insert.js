@@ -1,12 +1,36 @@
 var mysql = require('mysql');
-exports.insert = function(options,table,data){
+exports.insert = function(options,table,columnNames,data){
 				var connection = mysql.createConnection(options)
 				connection.connect();
 
 				var newdata = '(';
+                var queryStr ='INSERT INTO '+table+' '
+
+					 if(columnNames.length == 1){
+					 	queryStr+= '('+ columnNames[0] +')'
+
+					 }
+
+					 else if(columnNames.length > 1) {
+					 	var cols = "("
+                        columnNames.forEach(function(column){
+
+							 if(columnNames.indexOf(column) != (columnNames.length-1)){
+		                        	
+										cols += column+','
+									}
+							 else{
+										cols += column;
+									}
+
+				        })
+
+				        cols += ")"
+						queryStr+=cols;
+		            }
+
 				data.forEach(function(item){
 					var itemStr='';
-					
 					
 					 if(data.indexOf(item) != (data.length-1)){
                         	
@@ -39,7 +63,7 @@ exports.insert = function(options,table,data){
 				newdata+=')'
 
 
-				var queryStr ='INSERT INTO '+table+' VALUES '+newdata
+				queryStr+= (' VALUES '+newdata)
 
 				console.log('DATA: '+newdata)
 				console.log('QUERY: '+queryStr)

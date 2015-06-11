@@ -9,5 +9,5 @@ var dbOptions = {
 
 }
 
-data=['aceoods','breadman',3,'dovelina'];
-ins.insert(dbOptions,'test',data);
+data=[2,'qqqqqanana'];
+ins.insert(dbOptions,'test',['id','name'],data);
