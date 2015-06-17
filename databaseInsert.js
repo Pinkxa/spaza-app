@@ -41,7 +41,7 @@ var duplicateproducts = fl.ExtractCSV('Nelisa Sales History.csv',';','2',true);
 var products = [];
 
 duplicateproducts.forEach(function(product) {
-	//console.log(products.indexOf(product))
+	
    if(products.indexOf(product) == -(1)) {
    	     products.push(product)
    }
