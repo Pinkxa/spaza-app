@@ -5,7 +5,7 @@ var table = require('./getID')
 var dbOptions = {
     host : "localhost",
     user : "root",
-    password : "linokuhlekamva",
+    password : "theaya5379",
     port : 3306,
     database : "Nelisa"
 
@@ -25,9 +25,8 @@ duplicate.forEach(function(category) {
    	     categories.push(category)
    }
 });
-/*
-categories.forEach(function(categ){
-	db.insert(dbOptions,'categories', 'name', [categ])
+/*categories.forEach(function(categ){
+	db.insert(dbOptions,'categories', ['name'], [categ])
 })*/
 
 
