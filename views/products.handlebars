@@ -1,4 +1,4 @@
-
+<div id='backOpts'>
 
 <div  class="btn-group-vertical" id='f'><li><h3>Most Popular product</h3></li></div>
 	<div class='list-item'><img src="./images/{{mostPopularProd.Image}}"/> &nbsp{{mostPopularProd.Name}}&nbsp({{mostPopularProd.Quantity}} sold)
@@ -16,7 +16,7 @@
   		</ul>
 	</div>
 	</div>
-	<div id='web'><span class='glyphicon glyphicon-globe'></span>&nbsp<span class='glyphicon glyphicon-heart-empty'></span></div>
+	
 </div>
 
 <div  class="btn-group-vertical"><li><h3>Least Popular product</h3></li></div>
@@ -34,7 +34,7 @@
     			<li><a href="#">Product perfomance</a></li>
   		</ul>
 	</div>
-	</div><div id='web'><span class='glyphicon glyphicon-globe'></span>&nbsp<span class='glyphicon glyphicon-heart-empty'></span></div>
+	</div>
 </div>
 
 
@@ -53,7 +53,7 @@
     			<li><a href="#">Category perfomance</a></li>
   		</ul>
 	</div>
-	</div><div id='web'><span class='glyphicon glyphicon-globe'></span>&nbsp<span class='glyphicon glyphicon-heart-empty'></span></div>
+	</div>
 
 </div>
 
@@ -72,7 +72,36 @@
     			<li><a href="#">Category perfomance</a></li>
   		</ul>
 	</div>
-	</div><div id='web'><span class='glyphicon glyphicon-globe'></span>&nbsp<span class='glyphicon glyphicon-heart-empty'></span></div>
+	</div>
+</div>
+</div>
+
+
+<div id='prods'>
+<div class="container">
+  
+             
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>        
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each products}}
+      <tr id='Prod#{{name}}'>
+      
+        <td>{{name}}</td>
+        <td>R{{price}}</td>
+        <td>{{category}}</td>
+        
+      </tr>
+      {{/each}}
+      </tbody>
+  </table>
+</div>
 </div>
 
 {{{body}}}

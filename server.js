@@ -1,5 +1,7 @@
 var express = require('express');
 var exphbs  = require('express-handlebars');
+//var Handlebars = require('express-handlebars/runtime')['default'];
+var get = require('./get')
 var Spaza = require('./spaza');
 var nelisa = new Spaza(); 
 var app = express();
@@ -13,7 +15,7 @@ database = require('./database');
 var dbOptions = {
     host : "localhost",
     user : "root",
-    password : "linokuhlekamva",
+    password : "theaya5379",
     port : 3306,
     database : "Nelisa"
 
@@ -29,8 +31,42 @@ var mostpop = nelisa.mostPopularPdt(products);
 var leastpop = nelisa.leastPopularPdt(products);
 var mostcat = nelisa.mostPopularCat();
 var leastcat = nelisa.leastPopularCat();
-//console.log('\n\n'+JSON.stringify(products)+'\n\n')
 
+/*Handlebars.registerHelper('categorise', function(catid) {
+  switch(catid){
+    case 1:
+        return "Dairy Products";
+        break;
+    case 2:
+        return "Bakery";
+        break;
+    case 3:
+        return "Canned Foods";
+        break;
+    case 4:
+        return "Cold Beverages";
+        break;
+    case 5:
+        return "Bulk";
+        break;
+    case 6:
+        return "Soup";
+        break;
+    case 7:
+        return "Cosmetics";
+        break;
+    case 8:
+        return "Fruit";
+        break;
+    case 9:
+        return "Confectionery";
+        break;
+    case 10:
+        return "Valentines Goodies";
+        break;
+
+  }
+});*/
 var int = Math.floor(Math.random()*(products.length - 1)*1);
 var product = products[int]
 console.log('#### ->'+product.price.replace(',','.')+"+"+product.unitsSold)
@@ -58,13 +94,23 @@ app.get('/suppliers', function (req, res) {
 });
 
 app.get('/products', function (req, res) {
-    res.render('products', {
-     mostPopularProd : mostpop,
-     leastPopularProd: leastpop,
-     mostPop: mostcat,
-     leastPop: leastcat
+        var connection = mysql.createConnection(dbOptions)
+        connection.connect();
+        connection.query("select distinct products.name as name, sales.price as price ,categories.name as category from sales, products,categories where products.id=sales.product_id and products.category_id = categories.id",function(Err,results){
+
+            res.render('products', {
+            mostPopularProd : mostpop,
+            leastPopularProd: leastpop,
+            mostPop: mostcat,
+            leastPop: leastcat,
+            products:results
      
     });
+        })
+        
+        
+    
+   
 });
 
 app.get('/sales', function (req, res) {

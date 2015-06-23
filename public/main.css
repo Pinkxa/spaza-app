@@ -1,62 +1,125 @@
+
+#maino{
+    font-family: 'Dosis', sans-serif;
+	padding: -5%;
+	margin-top: -4%;
+	border-radius: 0px;
+	background: black;
+	border-bottom:2px solid orange;
+	border-top:4px solid orange;
+	/*border-top-left-radius: 3em;
+	border-top-right-radius: 3em;*/
+	box-shadow: 1px 1px 5px 1px black;
+	margin-bottom: 1.7%;
+}
+
+#navli li a{
+	color:orange;
+	font-weight: 900;
+}
 .btn-group-vertical{
-	display: block;
-	margin-left:30%;
-	margin-top: 1%;
-	border:2px solid lblack;
-	border-radius: 10vw;
-	background:#202020 ;
+	display: inline;
+	cursor: pointer;
+	font-family: 'Dosis', sans-serif;
+	margin-top: -3%;
+	padding-bottom: 1%;
+	border-bottom:2px solid orange;
+	margin-left: -30%;
+	background:black;
 	box-shadow: 1px 1px 1px 1px black;
-	width: 40%;
+	width: 160%;
 	height:10%;
 	list-style: none;
 	text-align: center;
 	color: #FFFFCC;
+	transform:scale(.6);
+	transition:transform 2s ease-in-out;
 
 } 
 
 .list-item{
-	background:orange;
-	width: 35%;
+	background:black;
+	color:white;
+	width: 162%;
 	height: auto;
-    border:1px solid grey;
+    font-family: 'Dosis', sans-serif;
     box-shadow: 1px 1px 10px 1px black;
     display: none;
-    margin-left: 32%;
-    margin-top: -3%;
-    border-radius: 15%; 
-    font-weight: 900;
-    font-size: 100%;
+    margin-left: -30%;
+    margin-top: -25;
+   
+    font-weight: 100;
+    font-size: 120%;
     padding-top: 1.5%;
+    transform:scale(.6);
+	transition:transform 2s ease-in-out;
+
 }
 .list-item img{
 	max-width: 50%;
-	max-height: 100%;
-	margin-top: 5%;
-	border-bottom-left-radius: 15%;
+	max-height: 120%;
+	border:2px solid orange;
+	margin-left: 2%;
+	border-radius: 10px;
+	
+}
+#backOpts{
+	background:black;
+	height:200%;
+	width:20%;
+	margin-top: 10%;
+	float:left;
+	border:3px solid orange;
+	border-radius: 5%;
+}
+#prods{
+	background: orange;
+	overflow:hidden;
+	position:relative;
+	margin-left: 23%;
+	margin-top: -1%;
+	width:75%;
+	border-radius: 10px;
+	border:3px solid black;
+	font-family: 'Dosis', sans-serif;
+	font-weight: 500;
+}
+.table{
+	width:7%;
 }
 .wide{
-	background: url('sp2.jpg');
+
+	background: url('sp3.jpg');
 	background-size: cover;
 	top:-100%;
 	height:60%;
 	margin-top: -3%;
-	padding:10.5%;
+	padding:6.5%;
 }
 .wide h1{
-	color: #787878;
+	color:orange;
+	-webkit-filter: contrast(1.5) drop-shadow(12px 12px 20px black) saturate(1.7);
+	border-radius: 30px;
+	background:black;
+	border:4px solid black;
+	text-align: center;
+	padding:1%;
+	opacity:.8;
 	width:35%;
 	text-shadow:2px 2px black;
-	font-size:280%;
+	font-size:300%;
 	font-weight: 900;
-	margin-left: -5%;
-	margin-top: -5%;
+	margin-left: -10%;
+	margin-top: -2%;
+	box-shadow: 1px 1px 100px 1px orange;
+	font-family: 'Dosis', sans-serif;
 	
 
-	
 
 }
-body{
 
+body{
+	font-family: 'Dosis', sans-serif;
 	background: url('back.jpg');
 	background-size: cover;
 
@@ -111,8 +174,9 @@ body{
 }
 #order{
 	position:absolute;
-	margin-left:20%;
-	margin-top: -5%;
+	margin-left:65%;
+	margin-top: -10%;
+	z-index: 1;
 }
 #web{
 	position:absolute;
@@ -129,4 +193,23 @@ body{
 }
 .glyphicon-heart-empty{
 	font-size: 150%;
+}
+#footer{
+	width:100%;
+	height:50%;
+	background:black;
+	color:white;
+	text-align: center;
+	padding:10%;
+	position: absolute;
+	display: inline-block;
+	border-top: 3px solid orange;
+	margin-top: 5%;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.table thead{
+	font-family: 'Dosis', sans-serif;
+	font-size: 2vw;
+	color:black;
+
 }
