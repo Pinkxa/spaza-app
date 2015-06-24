@@ -15,7 +15,7 @@ database = require('./database');
 var dbOptions = {
     host : "localhost",
     user : "root",
-    password : "theaya5379",
+    password : "linokuhlekamva",
     port : 3306,
     database : "Nelisa"
 
@@ -71,13 +71,14 @@ var int = Math.floor(Math.random()*(products.length - 1)*1);
 var product = products[int]
 console.log('#### ->'+product.price.replace(',','.')+"+"+product.unitsSold)
 app.get('/',function(req,res){
-    res.render('home',{
-        Name:product.name,
-        Price:product.price,
-        Sold:product.unitsSold,
-        Total:(parseInt(product.price.replace(',','.'))*product.unitsSold),
-        Image:source.getImage(product.name)
-    });
+    var connection = mysql.createConnection(dbOptions)
+    connection.connect();
+    connection.query("select distinct products.name from products",function(err,results){
+        res.render('home',{
+            products:results
+            });
+    })
+    
 })
 app.get('/spaza', function (req, res) {
     res.render('spaza', {

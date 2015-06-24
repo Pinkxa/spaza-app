@@ -1,5 +1,7 @@
-var getImage = function(product){
-			     console.log("Product "+product)
+getImage = function(product){
+			console.log("Product "+product)
+          //<div class="carousel-inner" role="listbox">
+              //<div class="item active">
 				switch(product){
 					case 'Imasi':
 						return "amasi.png";
@@ -35,13 +37,13 @@ var getImage = function(product){
 						return "shampoo.jpg";
 						break;
 					case 'Soap Bar':
-						return "soap_bar.jpg";
+						return "soap.jpg";
 						break;
 					case 'Bananas - loose':
 						return "bananas.jpg";
 						break;
 					case 'Apples - loose':
-						return "bananas.jpg";
+						return "apples.jpg";
 						break;
 					case 'Mixed Sweets 5s':
 						return "mixed_sweets.jpg";
@@ -50,10 +52,10 @@ var getImage = function(product){
 						return "rose.jpg";
 						break;
 					case 'Heart Chocolates':
-						return "bananas.jpg";
+						return "heart_chocolates.jpg";
 						break;
 					case 'Valentine Cards':
-						return "bananas.jpg";
+						return "Valentine_card.jpg";
 						break;
 					case 'Dairy Products':
 						return "dairy.jpg";
@@ -68,13 +70,13 @@ var getImage = function(product){
 						return "beverages.jpg";
 						break;
 					case 'Bulk':
-						return "bananas.jpg";
+						return "iwisa.jpg";
 						break;
 					case 'Soup':
-						return "bananas.jpg";
+						return "top_class_soya_mince.jpg";
 						break;
 					case 'Cosmetics':
-						return "Cosmetics.jpg.jpg";
+						return "Cosmetics.jpg";
 						break;
 					case 'Fruit':
 						return "fruit.jpg";
@@ -86,5 +88,10 @@ var getImage = function(product){
 						return "valentines.jpg";
 						break;
 					default:
-						return 'default.jpg'}
-		}
+						return 'default.jpg'
+					}
+
+				//<div class="carousel-caption">
+		    }
+		
+		
