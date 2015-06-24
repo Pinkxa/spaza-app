@@ -96,7 +96,7 @@ app.get('/suppliers', function (req, res) {
 app.get('/products', function (req, res) {
         var connection = mysql.createConnection(dbOptions)
         connection.connect();
-        connection.query("select distinct products.name as name, sales.price as price ,categories.name as category from sales, products,categories where products.id=sales.product_id and products.category_id = categories.id",function(Err,results){
+        connection.query("select distinct products.name as name,sales.price as price ,categories.name as category from sales, products,categories where products.id=sales.product_id and products.category_id = categories.id",function(Err,results){
 
             res.render('products', {
             mostPopularProd : mostpop,

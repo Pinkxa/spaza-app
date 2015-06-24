@@ -5,8 +5,7 @@
 	margin-top: -4%;
 	border-radius: 0px;
 	background: black;
-	border-bottom:2px solid orange;
-	border-top:4px solid orange;
+	border-bottom:1px solid orange;
 	/*border-top-left-radius: 3em;
 	border-top-right-radius: 3em;*/
 	box-shadow: 1px 1px 5px 1px black;
@@ -36,7 +35,15 @@
 	transition:transform 2s ease-in-out;
 
 } 
+.btn-group-vertical:hover{
+	
+	box-shadow: 2px 3px 80px 5px orange;
+	border-top-left-radius:20px; 
+	border-top-right-radius:20px;
+	text-shadow:1px 1px orange;
+	transition:transfrom .6s linear;
 
+}
 .list-item{
 	background:black;
 	color:white;
@@ -46,8 +53,7 @@
     box-shadow: 1px 1px 10px 1px black;
     display: none;
     margin-left: -30%;
-    margin-top: -25;
-   
+    margin-top: -25;   
     font-weight: 100;
     font-size: 120%;
     padding-top: 1.5%;
@@ -69,49 +75,120 @@
 	width:20%;
 	margin-top: 10%;
 	float:left;
-	border:3px solid orange;
+
 	border-radius: 5%;
+	box-shadow: 1px 1px 3px 1px black;
 }
 #prods{
-	background: orange;
+	background:rgba(0,0,0,0.95);
 	overflow:hidden;
 	position:relative;
 	margin-left: 23%;
 	margin-top: -1%;
 	width:75%;
 	border-radius: 10px;
-	border:3px solid black;
+	border:1px solid black;
 	font-family: 'Dosis', sans-serif;
 	font-weight: 500;
+	box-shadow: 1px 1px 3px 1px black;
+	visibility:hidden;
+	transition:all 1s linear;
 }
 .table{
 	width:7%;
+	
+	
 }
+#editOptions {visibility: hidden;}
+
+
+
+
+
+.table thead{
+	font-family: 'Dosis', sans-serif;
+	font-size: 2vw;
+	color:orange;
+	width:10%;
+	padding: 1%;
+	text-align: left;
+
+}
+
+input{
+	background:none;
+	border:none;
+}
+
+.table tr td{
+	color:white;
+	
+}
+.table tr td div{
+	visibility: hidden;
+	margin-left: 5%;
+	color:grey;
+
+}
+.table tr td input{
+	padding:1%;
+	letter-spacing: 2px;
+	
+
+}
+.table tr td input:focus{
+	outline:0;
+	background:rgba(255,153,0,0.2);
+	letter-spacing: 2px;
+}
+.table tr td span{
+	visibility: hidden;
+	color:grey;
+	margin-left:5%;
+}
+.table tr td span:hover,.table tr td div:hover{
+	box-shadow:1px 1px 2px 1px black;
+	transform:scale(1.6);
+	transition:transform .2s;
+	border-radius: 20px;
+	padding:.2%;
+	letter-spacing: 2px;
+}
+
+.table tr td:hover{
+	transform:scale(1.02);
+	transition:transform .1s;
+	background:white;
+	color:black;
+	box-shadow: 1px 1px 3px 1px black;
+}
+
+
 .wide{
 
 	background: url('sp3.jpg');
 	background-size: cover;
 	top:-100%;
-	height:60%;
-	margin-top: -3%;
+	height:65%;
+	margin-top: -2%;
 	padding:6.5%;
 }
 .wide h1{
-	color:orange;
-	-webkit-filter: contrast(1.5) drop-shadow(12px 12px 20px black) saturate(1.7);
+	color:black;
+	-webkit-filter: contrast(1.5) saturate(1.7);
 	border-radius: 30px;
-	background:black;
-	border:4px solid black;
+	
+	
 	text-align: center;
 	padding:1%;
-	opacity:.8;
+	
 	width:35%;
 	text-shadow:2px 2px black;
 	font-size:300%;
 	font-weight: 900;
-	margin-left: -10%;
+	margin-left: -15%;
 	margin-top: -2%;
-	box-shadow: 1px 1px 100px 1px orange;
+	
 	font-family: 'Dosis', sans-serif;
 	
 
@@ -207,9 +284,50 @@ body{
 	margin-top: 5%;
 	font-family: 'Source Sans Pro', sans-serif;
 }
-.table thead{
-	font-family: 'Dosis', sans-serif;
-	font-size: 2vw;
-	color:black;
+#footer h5 a{color:orange;
+			transition-timing-function:ease-in;/
+			transition-property: transform;
+			transition-duration: 1s;
+			-webkit-transition-property: transform; 
+			-webkit-transition-duration: 1s; 
+			}
+#footer h5 a:hover{
+	transform:scale(1.2);
+	border-radius: 20px;
+	background:black;
+	color:orange;
+	box-shadow: 1px 1px 13px 1px grey;
+	text-decoration: none;
+	padding:.5%;
+}
 
+#show{
+	cursor: pointer;
+	position:absolute;
+	padding:2%;
+	color:orange;
+	font-size: 3vw;
+	font-weight: 900;
+	background:black;
+	border:1px solid white;
+	border-radius:15px; 
+	box-shadow: 1px 1px 10px 5px black;
+	margin-left: 40%;
+	margin-top: 10%;
+}
+#show:hover{
+	background:orange;
+	color: black;
+	box-shadow: 1px 1px 30px 13px black;
+};
+
+div#exit{
+	width:2%;
+	height:3%;
+	position: absolute;
+	color:orange;
+	background:red;
+	border-radius:50px;
+	padding:5%;
+	border:2px solid white;
 }
