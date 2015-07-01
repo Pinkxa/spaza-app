@@ -1,0 +1,5 @@
+INSERT INTO sales(date,sales_price,quantity, product_id)
+SELECT sales_csv.date, CAST( REPLACE( SUBSTRING( sales_csv.price, 2 ) ,  ',',  '.' ) AS DECIMAL(12,2)) AS Sales_Price, sales_csv.quantity, products.id AS Product_id
+FROM sales_csv, products
+WHERE sales_csv.item = products.name
+LIMIT 0 , 30

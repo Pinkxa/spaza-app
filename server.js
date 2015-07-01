@@ -115,7 +115,10 @@ app.get('/products', function (req, res) {
 });
 
 app.get('/sales', function (req, res) {
-    res.render('sales', {
+        var connection = mysql.createConnection(dbOptions)
+        connection.connect();
+        connection.query("select distinct products.name as name,sales.price as price ,categories.name as category from sales, products,categories where products.id=sales.product_id and products.category_id = categories.id",function(Err,results){
+            res.render('sales', {
 
     });
 });
