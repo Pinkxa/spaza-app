@@ -125,39 +125,133 @@
 
   <form id='pf' action='products' method='post'>
   <table class="table">
+   
     <thead>
       <tr>
         <th>Name</th>
-        <th>Price</th>        
-        <th>Category</th>
+        <th>Category</th>        
+        <th>Price</th>
       </tr>
     </thead>
+
+
     <tbody>
     {{#each products}}
 
       <tr id='{{prodID}}'>      
-        <td>
+        <td id='productName'>
         <input type="text" name="name" value="{{name}}">        
         <div class="glyphicon glyphicon-pencil"></div>
         </td>        
 
-        <td>
-        <input type="text" name="price" value="{{price}}">
+        <td id='productCat'>
+        <input type="text" name="price" value="{{category}}">
         <div class="glyphicon glyphicon-pencil"></div>        
         </td>   
 
-        <td><input type="text" name="category" value="{{category}}">        
+        <td id='productPrice'><input type="text" name="category" value="{{price}}">        
         </td>       
 
       </tr>
 
+
+
         
 
       {{/each}}
+
+
+
+
       </tbody>
   </table>
   </form>
+
+  <script type='text/javascript'>
+          $.fn.center = function () {
+
+             this.css("position","absolute");
+             this.css("top", ( $(window).height() - this.height() ) / 2  + "px");
+             this.css("left", ( $(window).width() - this.width() ) / 2 + "px");
+             return this;
+
+          }
+
+          $('.table tr td').keypress(function(e) {
+                            
+                            var Categories =[]
+
+                            {{#each categories}}
+                                Categories.push('{{name}}')          
+                            {{/each}}
+                       
+                            var catVal = $('.table tr td:nth-of-type(2)').find('input').val();
+
+                            
+
+                            if( e.which == 13) 
+                                {   
+                                 
+                                    if(Categories.indexOf(catVal) < 0)
+                                    {
+
+                                        $("#dialog").css({position:'fixed',zIndex:'50',width:'auto',height:'auto',backgroundColor:'rgba(255,153,0,0.9)',border:'3px solid black',padding:'1%',color:'black',fontSize:'1vw',borderRadius:'20px',listStyle:'none',visibility:'visible',marginLeft:'auto',marginTop:'-60%',left:'40%',right:'40%',textAlign:'center',transition:'all .5s linear'})
+
+                                        var catStr =''
+
+                                        Categories.forEach(function(cat){
+                                            catStr+=("<li style='color:white;'>"+cat+'</li>')
+                                        })
+                                        
+                                        catStr+="<button type='submit' class='btn .btn-danger'>'Add as New'</button>"
+                                        catStr+="<p id='closeSpan'>click anywhere to close</p>"
+
+                                        $('#dialog').html(('<b>Category does not exist<br>available categories</b> <span>'+catStr+'</span>'))
+
+                                        $('#closeSpan').css({
+                                            background:'black',
+                                            color:'white',
+                                            borderRadius:'3px',
+                                            border:'1px solid orange'
+                                          })
+
+
+                                        $('#prods').css({'webkitFilter':'blur(2px)'})
+                                    }
+                                    else
+                                    { 
+                                      alert('index :'+Categories.indexOf(catVal)+' val:'+catVal)
+                                        var prodId   =$(this).parent().attr('id')
+                                        var newName  =$(this).parent().find('td:first-of-type').find('input').val();
+                                        var newPrice =$(this).parent().find('td:nth-of-type(3)').find('input').val();
+                                        var newCat   =$(this).parent().find('td:nth-of-type(2)').find('input').val();
+
+                                        var data     ={id:prodId,name:newName,price:newPrice,cat:newCat}
+
+                                        $.post('/products',data,function(){alert('saved')})
+                                    }
+                                    
+                                }
+                                            
+                            
+
+
+
+
+
+
+                        });
+                         $('#closeSpan').click(function(){
+                
+                           })
+          
+          
+          
+          
+  </script>
+  
 </div>
+
 </div>
 
 
@@ -254,5 +348,5 @@
   </div>
 </div>
 </div>
-
+<span id="dialog"></span>
 {{{body}}}

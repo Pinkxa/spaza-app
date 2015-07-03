@@ -59,6 +59,7 @@
             //user requsets home page
 
             app.get('/',function(req,res){
+                console.log('Client requests home page')   
                 var connection = mysql.createConnection(dbOptions)
                 connection.connect();
                 connection.query("select distinct products.name from products",function(err,results){
@@ -101,16 +102,23 @@
             app.get('/products', function (req, res) {
                     var connection = mysql.createConnection(dbOptions)
                     connection.connect();
-                    connection.query("select distinct products.name as name,sales.price as price ,categories.name as category,sales.product_id as prodID from sales, products,categories where products.id=sales.product_id and products.category_id = categories.id",function(Err,results){
+                    connection.query("select distinct products.name as name,categories.id as catid,sales.price as price ,categories.name as category,sales.product_id as prodID from sales, products,categories where products.id=sales.product_id and products.category_id = categories.id",function(Err,results){
 
-                        res.render('products', {
-                        mostPopularProd : mostpop,
-                        leastPopularProd: leastpop,
-                        mostPop: mostcat,
-                        leastPop: leastcat,
-                        products:results,
-                        view:0
-                });
+                        var newConnection = mysql.createConnection(dbOptions);
+                        newConnection.connect();
+                        var products = results;
+                        newConnection.query('select name from categories',function(err,results){
+                            console.log('Client requests products page')   
+                            res.render('products', {
+                                mostPopularProd : mostpop,
+                                leastPopularProd: leastpop,
+                                mostPop: mostcat,
+                                leastPop: leastcat,
+                                products:products,
+                                categories:results
+                            });
+                        })
+                        
                     })
                     
                     
@@ -124,12 +132,22 @@
             //user posts from products page
 
             app.post('/products',function(req,res){
+                console.log('Client sends from products page')   
                 var connection = mysql.createConnection(dbOptions)
                     connection.connect();
-                    var strquery = 'update products set name='+'\''+req.body.name+'\''+' where id='+req.body.id+';'
-                    
-                    connection.query(strquery)
-                    console.log(JSON.stringify(req.body))
+                   
+                    strquery ='select id from categories where name ='+'\''+req.body.cat+'\''+';'
+
+                    connection.query(strquery,function(expressrr,results){
+                        console.log("----------------------------------->"+results[0].id)
+                        var newConnection = mysql.createConnection(dbOptions)
+                        var newStrquery = 'update products set name='+'\''+req.body.name+'\''+' ,category_id='+'\''+results[0].id+'\''+' where id='+req.body.id+';'
+                        newConnection.query(newStrquery);
+
+                    })
+
+
+                    console.log("Update Product : "+JSON.stringify(req.body))
                     res.send(req.body.prodId)
             })
 
@@ -140,6 +158,7 @@
             //user requests sales page
 
             app.get('/sales', function (req, res) {
+                console.log('Client requests sales page')   
                 res.render('sales', {
 
                 });
@@ -151,6 +170,7 @@
             //user requests profits page 
 
              app.get('/profits', function (req, res) {
+                console.log('Client requests profits page')   
                 res.render('profits', {
 
                 });
@@ -160,6 +180,7 @@
              //user requests others page
 
              app.get('/other', function (req, res) {
+                console.log('Client requests others page')   
                 res.render('other', {
                   
                 });

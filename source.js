@@ -1,7 +1,7 @@
 module.exports = function(){
 		
 		this.getImage = function(product){
-			     console.log("Product "+product)
+			     console.log("\nfetching image file")
 				switch(product){
 					case 'Imasi':
 						return "amasi.png";
