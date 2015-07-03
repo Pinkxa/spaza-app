@@ -2,7 +2,7 @@
 
 <div  class="btn-group-vertical" id='f'><li><h3>Most Popular product</h3></li></div>
 	<div class='list-item'>
-        <img src="./images/{{mostPopularProd.Image}}"/> &nbsp{{mostPopularProd.Name}}&nbsp({{mostPopularProd.Quantity}} sold)
+        &nbsp{{mostPopularProd.Name}}&nbsp({{mostPopularProd.Quantity}} sold)
 	      <div id='order'>
 	      <div class="btn-group">
   		  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -21,26 +21,27 @@
 </div>
 
 <div  class="btn-group-vertical"><li><h3>Least Popular product</h3></li></div>
-	<div class='list-item' ><img src="./images/{{leastPopularProd.Image}}"/> &nbsp{{{leastPopularProd.Name}}}&nbsp({{{leastPopularProd.Quantity}}} sold)
-	<div id='order'>
-	<div class="btn-group">
-  		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+	<div class='list-item' >
+        &nbsp{{{leastPopularProd.Name}}}&nbsp({{{leastPopularProd.Quantity}}} sold)
+	      <div id='order'>
+	      <div class="btn-group">
+  		  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
     		Options <span class="caret"></span>
-  		</button>
-  		<ul class="dropdown-menu" role="menu">
-    			<li><a href="#">Order </a></li>
-    			<li><a href="#">Supplier Details</a></li>
-    			<li><a href="#">Compare Prices</a></li>
-    			<li class="divider"></li>
-    			<li><a href="#">Product perfomance</a></li>
-  		</ul>
+  		  </button>
+  		  <ul class="dropdown-menu" role="menu">
+    			  <li><a href="#">Order </a></li>
+    			  <li><a href="#">Supplier Details</a></li>
+    			  <li><a href="#">Compare Prices</a></li>
+    			  <li class="divider"></li>
+    			  <li><a href="#">Product perfomance</a></li>
+  		  </ul>
 	</div>
 	</div>
 </div>
 
 
 <div  class="btn-group-vertical"><li><h3>Most Popular category</h3></li></div>
-	<div class='list-item'><img src="./images/{{mostPop.Image}}"/> &nbsp{{{mostPop.ItemName}}}&nbsp({{{mostPop.UnitsSold}}} sold)
+	<div class='list-item'> &nbsp{{{mostPop.ItemName}}}&nbsp({{{mostPop.UnitsSold}}} sold)
 	<div id='order'>
 	<div class="btn-group">
   		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -59,7 +60,7 @@
 </div>
 
 <div  class="btn-group-vertical"><li><h3>Least Popular category</h3></li></div>
-   <div class='list-item'><img src="./images/{{leastPop.Image}}"/> &nbsp{{{leastPop.ItemName}}}&nbsp({{{leastPop.UnitsSold}}} sold)
+   <div class='list-item'> &nbsp{{{leastPop.ItemName}}}&nbsp({{{leastPop.UnitsSold}}} sold)
    <div id='order'>
 	<div class="btn-group">
   		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -77,15 +78,52 @@
 </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  <span id='show'>View & Edit<br/>product list</span>
- <div id='exit'><span class="glyphicon glyphicon-remove" ></span></div>
+ <div id='exit'>close</span></div>
 <div id='prods'>
 <div class="container">
   
              
  
 
-  <form action="">
+  <form id='pf' action='products' method='post'>
   <table class="table">
     <thead>
       <tr>
@@ -96,29 +134,20 @@
     </thead>
     <tbody>
     {{#each products}}
-      <tr>
-      
-        <td>
-        <input type="text" name="fname" value="{{name}}">
-        <span class="glyphicon glyphicon-ok"></span>
-        <span class="glyphicon glyphicon-remove"></span>
-         <div class="glyphicon glyphicon-pencil"></div>
-        </td>
 
-        
+      <tr id='{{prodID}}'>      
+        <td>
+        <input type="text" name="name" value="{{name}}">        
+        <div class="glyphicon glyphicon-pencil"></div>
+        </td>        
 
         <td>
-        <input type="text" name="fname" value="{{price}}">
-        <span class="glyphicon glyphicon-ok"></span>
-        <span class="glyphicon glyphicon-remove"></span>
-        </td>
+        <input type="text" name="price" value="{{price}}">
+        <div class="glyphicon glyphicon-pencil"></div>        
+        </td>   
 
-        
-        <td><input type="text" name="fname" value="{{category}}">
-        <span class="glyphicon glyphicon-ok"></span>
-        <span class="glyphicon glyphicon-remove"></span>
-        </td>
-        
+        <td><input type="text" name="category" value="{{category}}">        
+        </td>       
 
       </tr>
 
@@ -128,6 +157,101 @@
       </tbody>
   </table>
   </form>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id='backOptsProfits'>
+
+<div  class="btn-group-vertical" id='f'><li><h3>Most Profitable product</h3></li></div>
+  <div class='list-item'>
+        <img src="./images/{{mostPopularProd.Image}}"/> &nbsp{{mostPopularProd.Name}}&nbsp({{mostPopularProd.Quantity}} sold)
+        <div id='order'>
+        <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              Options <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Order </a></li>
+            <li><a href="#">Supplier Details</a></li>
+            <li><a href="#">Compare Prices</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Product perfomance</a></li>
+        </ul>
+  </div>
+  </div>
+  
+</div>
+
+<div  class="btn-group-vertical"><li><h3>Least Profitable product</h3></li></div>
+  <div class='list-item' ><img src="./images/{{leastPopularProd.Image}}"/> &nbsp{{{leastPopularProd.Name}}}&nbsp({{{leastPopularProd.Quantity}}} sold)
+  <div id='order'>
+  <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        Options <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Order </a></li>
+          <li><a href="#">Supplier Details</a></li>
+          <li><a href="#">Compare Prices</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Product perfomance</a></li>
+      </ul>
+  </div>
+  </div>
+</div>
+
+
+<div  class="btn-group-vertical"><li><h3>Most Profitable category</h3></li></div>
+  <div class='list-item'><img src="./images/{{mostPop.Image}}"/> &nbsp{{{mostPop.ItemName}}}&nbsp({{{mostPop.UnitsSold}}} sold)
+  <div id='order'>
+  <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        Options <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Order </a></li>
+          <li><a href="#">Supplier Details</a></li>
+          <li><a href="#">Compare Prices</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Category perfomance</a></li>
+      </ul>
+  </div>
+  </div>
+
+</div>
+
+<div  class="btn-group-vertical"><li><h3>Least Profitable category</h3></li></div>
+   <div class='list-item'><img src="./images/{{leastPop.Image}}"/> &nbsp{{{leastPop.ItemName}}}&nbsp({{{leastPop.UnitsSold}}} sold)
+   <div id='order'>
+  <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        Options <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Order </a></li>
+          <li><a href="#">Supplier Details</a></li>
+          <li><a href="#">Compare Prices</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Category perfomance</a></li>
+      </ul>
+  </div>
+  </div>
 </div>
 </div>
 
