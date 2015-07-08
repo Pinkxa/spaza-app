@@ -1,0 +1,37 @@
+<span id='showPurchases' class='showButton'>View <br/>purchases list</span>
+ <div id='exitPurchasess' class='exitButton'>close</span></div>
+<div id='purchases'>
+
+ <div class="container">
+  
+    
+
+  <table class='table' id='purchasesTable'> 
+
+    <thead>
+
+      <tr> 
+
+         <th>date</th>
+         <th>product</th>
+         <th>price</th>
+         <th>supplier</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each purchases}}
+
+      <tr>
+
+         <td>{{date}}</td>
+         <td>{{product}}</td>
+         <td>{{price}}</td>
+         <td>{{supplier}}</td>
+      </tr>  
+     {{/each}}
+    </tbody>
+  </table>
+
+</div>
+</div>

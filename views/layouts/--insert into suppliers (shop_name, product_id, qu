@@ -1,0 +1,3 @@
+--insert into suppliers (shop_name, product_id, quantity)
+select distinct purchases_csv.shop AS shop_name
+FROM purchases_csv, products

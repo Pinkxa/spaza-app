@@ -1,6 +1,33 @@
-<div class = "suppliers">
-{{#each suppliers}}
-***
-<br>
-{{/each}}
+<span id='showSuppliers' class='showButton'>View <br/>suppliers list</span>
+ <div id='exitSuppliers' class='exitButton'>close</span></div>
+<div id='suppliers'>
+
+ <div class="container">
+  
+    
+
+  <table class='table' id='suppliersTable'> 
+
+    <thead>
+
+      <tr> 
+
+         <th>suppliers</th>
+  
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each suppliers}}
+
+      <tr>
+
+         <td>{{name}}</td>
+
+      </tr>  
+     {{/each}}
+    </tbody>
+  </table>
+
+</div>
 </div>
