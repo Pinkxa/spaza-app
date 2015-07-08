@@ -27,12 +27,14 @@
 
             $('#backOpts').animate({marginLeft:'160px'})
             $('#backOptsProfits').animate({marginRight:'14%'})
-            $('.showButton').animate({right:'38%'})
-           
+            $('#show').animate({right:'38%'})
+
+
+
 
         //-------- create close button for products table ----------//
 
-             $('.exitButton').css({visibility:'hidden',
+             $('#exit').css({visibility:'hidden',
                             color:'orange',
                             fontSize:'1em',
                             fontWeight:'300',
@@ -46,7 +48,9 @@
                             textAlign:'center',
                             opacity:'.4'
                             })
-            
+            $('#exit span').css({
+
+            })
            
 
 
@@ -128,7 +132,7 @@
 
 
 
-               })
+               });
             
             
         
@@ -148,7 +152,40 @@
 
         //------- click event for view products table button --------------//
 
-            $("#showProducts").click(function(){
+            function showScreen(buttonId, target){
+                
+                $(buttonId).click(function(){
+                    $(this).css('visibility','hidden');
+                    $(target).animate({opacity:'1'})
+                    $(target).css('visibility','visible');
+                    $(target).css({transform :'scale(1)'})
+                    $(target).animate({left:'1%'})
+                    $('#backOpts').animate({marginLeft:'5%'})
+                    $('#backOptsProfits').animate({marginRight:'8%'})
+                    $('#exit').css('visibility','visible')
+                });
+
+                $("#exitButton").click(function(){
+
+                    $(target).animate({opacity:'0'},100)  
+                    $(target).css('visibility','hidden');
+                    $('#backOpts').animate({marginLeft:'3%'})
+                    $('#backOptsProfits').animate({marginRight:'3%'})
+                    $("#show").css('visibility','visible')
+                    $('#exit').css('visibility','hidden');
+
+                })                
+
+            }
+
+            showScreen("#showProducts", "#prods");
+            showScreen("#showPurchases", "#purchases");
+            showScreen("#showSales", "#sales");
+            showScreen("#showSuppliers", "#suppliers");
+
+
+            /*
+            $("#showButton").click(function(){
 
                     $(this).css('visibility','hidden');
                     $('#prods').animate({opacity:'1'})
@@ -157,83 +194,14 @@
                     $('#prods').animate({left:'1%'})
                     $('#backOpts').animate({marginLeft:'5%'})
                     $('#backOptsProfits').animate({marginRight:'8%'})
-                    $('#exitProducts').css('visibility','visible')
+                    $('#exit').css('visibility','visible')
 
             })
-
-            $("#showSales").click(function(){
-
-                    $(this).css('visibility','hidden');
-                    $('#sales').animate({opacity:'1'})
-                    $('#sales').css('visibility','visible');
-                    $('#sales').css({transform :'scale(1)'})
-                    $('#sales').animate({left:'1%'})
-                    $('#exitSales').css('visibility','visible')
-
-            })
-
-            $("#showSuppliers").click(function(){
-
-                    $(this).css('visibility','hidden');
-                    $('#suppliers').animate({opacity:'1'})
-                    $('#suppliers').css('visibility','visible');
-                    $('#suppliers').css({transform :'scale(1)'})
-                    $('#suppliers').animate({left:'1%'})
-                    $('#exitSuppliers').css('visibility','visible')
-
-            })
-
-            $("#showPurchases").click(function(){
-
-                    $(this).css('visibility','hidden');
-                    $('#purchases').animate({opacity:'1'})
-                    $('#purchases').css('visibility','visible');
-                    $('#purchases').css({transform :'scale(1)'})
-                    $('#purchases').animate({left:'1%'})
-                    $('#exitPurchases').css('visibility','visible')
-
-            })
+            */
 
 
 
+            
 
 
-
-            $("#exitProducts").click(function(){
-
-                    $('#prods').animate({opacity:'0'},100)  
-                    $('#prods').css('visibility','hidden');
-                    $('#backOpts').animate({marginLeft:'3%'})
-                    $('#backOptsProfits').animate({marginRight:'3%'})
-                    $("#showProducts").css('visibility','visible')
-                    $('#exitProducts').css('visibility','hidden');
-
-            })
-
-            $("#exitSales").click(function(){
-
-                    $('#sales').animate({opacity:'0'},100)  
-                    $('#sales').css('visibility','hidden');
-                    $("#showSales").css('visibility','visible')
-                    $('#exitSales').css('visibility','hidden');
-
-            })
-
-            $("#exitSuppliers").click(function(){
-
-                    $('#suppliers').animate({opacity:'0'},100)  
-                    $('#suppliers').css('visibility','hidden');
-                    $("#showSuppliers").css('visibility','visible')
-                    $('#exitSuppliers').css('visibility','hidden');
-
-            })
-
-            $("#exitPurchases").click(function(){
-
-                    $('#purchases').animate({opacity:'0'},100)  
-                    $('#purchases').css('visibility','hidden');
-                    $("#showPurchases").css('visibility','visible')
-                    $('#exitPurchases').css('visibility','hidden');
-
-            })
         });

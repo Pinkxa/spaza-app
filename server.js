@@ -110,7 +110,6 @@
             app.get('/products', function (req, res) {
                     var connection = mysql.createConnection(dbOptions)
                     connection.connect();
-
                     connection.query("select distinct products.name as name,categories.id as catid,sales.price as price ,categories.name as category,sales.product_id as prodID from sales, products,categories where products.id=sales.product_id and products.category_id = categories.id",function(Err,results){
 
                         var newConnection = mysql.createConnection(dbOptions);
@@ -135,9 +134,6 @@
                
             });
 
-
-
-
             //user posts from products page
 
             app.post('/products',function(req,res){
@@ -146,7 +142,6 @@
                     connection.connect();
                    
                     strquery ='select id from categories where name ='+'\''+req.body.cat+'\''+';'
-
                     connection.query(strquery,function(expressrr,results){
                         console.log("----------------------------------->"+results[0].id)
                         var newConnection = mysql.createConnection(dbOptions)
@@ -166,17 +161,13 @@
                 connection.connect();
                 connection.query("select sales.date, products.name, sales.quantity, sales.price,sales.product_id from sales,products where products.id = sales.product_id order by sales.date desc",
                     function(err,results){
-
-                    console.log('Client requests sales page : ' + err)   
+                            console.log('Client requests sales page : ' + err)   
                     
-                    res.render('sales', {
-                        sales : results
+                            res.render('sales', {
+                                sales : results
                     });
-
-                    console.log("results : " +JSON.stringify(results))
                 });
-        });    
-
+            });    
 
             //user requests purchases page 
 

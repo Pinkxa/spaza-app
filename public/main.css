@@ -531,7 +531,7 @@ body{
 		transform:scale(1.2);
 		transsition:transform 1s;
 };
+
 #dialog{
 	transition:all 1s linear;
-}
-
+};
