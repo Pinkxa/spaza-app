@@ -1,8 +1,9 @@
+<div>
 <div id='backOpts'>
 
 <div  class="btn-group-vertical" id='f'><li><h3>Most Popular product</h3></li></div>
 	<div class='list-item'>
-        &nbsp{{mostPopularProd.Name}}&nbsp({{mostPopularProd.Quantity}} sold)
+        &nbsp{{mostPopularProd.name}}&nbsp({{mostPopularProd.Quantity}} sold)
 	      <div id='order'>
 	      <div class="btn-group">
   		  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -22,7 +23,7 @@
 
 <div  class="btn-group-vertical"><li><h3>Least Popular product</h3></li></div>
 	<div class='list-item' >
-        &nbsp{{{leastPopularProd.Name}}}&nbsp({{{leastPopularProd.Quantity}}} sold)
+        &nbsp{{{leastPopularProd.name}}}&nbsp({{{leastPopularProd.Quantity}}} sold)
 	      <div id='order'>
 	      <div class="btn-group">
   		  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -41,7 +42,7 @@
 
 
 <div  class="btn-group-vertical"><li><h3>Most Popular category</h3></li></div>
-	<div class='list-item'> &nbsp{{{mostPop.ItemName}}}&nbsp({{{mostPop.UnitsSold}}} sold)
+	<div class='list-item'> &nbsp{{{mostPop.name}}}&nbsp({{{mostPop.catQuantity}}} sold)
 	<div id='order'>
 	<div class="btn-group">
   		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -60,7 +61,7 @@
 </div>
 
 <div  class="btn-group-vertical"><li><h3>Least Popular category</h3></li></div>
-   <div class='list-item'> &nbsp{{{leastPop.ItemName}}}&nbsp({{{leastPop.UnitsSold}}} sold)
+   <div class='list-item'> &nbsp{{{leastPop.name}}}&nbsp({{{leastPop.catQuantity}}} sold)
    <div id='order'>
 	<div class="btn-group">
   		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -116,7 +117,7 @@
 
 
  <span id='showProducts' class='showButton'>View & Edit<br/>product list</span>
- <div id='exitProducts' class='exitButton' >close</span></div>
+ <div id='exitProducts' class='exitButton' >close table</span></div>
 <div id='prods'>
 <div class="container">
   
@@ -124,11 +125,9 @@
  
 
   <form id='pf' action='products' method='post'>
-<<<<<<< HEAD
+
   <table class="table" id='productsTable'>
-=======
-  <table class="table">
->>>>>>> 62d04a93139380d49afc87dffd434c516ef25f01
+
    
     <thead>
       <tr>
@@ -224,7 +223,7 @@
                                     }
                                     else
                                     { 
-                                      alert('index :'+Categories.indexOf(catVal)+' val:'+catVal)
+                                      //alert('index :'+Categories.indexOf(catVal)+' val:'+catVal)
                                         var prodId   =$(this).parent().attr('id')
                                         var newName  =$(this).parent().find('td:first-of-type').find('input').val();
                                         var newPrice =$(this).parent().find('td:nth-of-type(3)').find('input').val();
@@ -353,4 +352,5 @@
 </div>
 </div>
 <span id="dialog"></span>
+</div>
 {{{body}}}

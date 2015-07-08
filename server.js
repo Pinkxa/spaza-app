@@ -27,7 +27,7 @@
             var dbOptions = {
                 host : "localhost",
                 user : "root",
-                password : "linokuhlekamva",
+                password : "theaya5379",
                 port : 3306,
                 database : "Nelisa"
 
@@ -116,15 +116,36 @@
                         newConnection.connect();
                         var products = results;
                         newConnection.query('select name from categories',function(err,results){
-                            console.log('Client requests products page')   
-                            res.render('products', {
-                                mostPopularProd : mostpop,
-                                leastPopularProd: leastpop,
-                                mostPop: mostcat,
-                                leastPop: leastcat,
-                                products:products,
-                                categories:results
-                            });
+                            
+                            console.log('Client requests products page')
+                            var categories = results;   
+                            var PopularityConnection = mysql.createConnection(dbOptions)
+                            PopularityConnection.connect()
+                            PopularityConnection.query("select products.name, product_id as productID , sum(quantity) as Quantity from sales , products where products.id=product_id group by product_id ORDER BY Quantity DESC ",function(err,results){
+
+                                    var CategoriesConnection = mysql.createConnection(dbOptions)
+                                    CategoriesConnection.connect()
+                                    var popularProduct = results[0];
+                                    var unPopularProduct = results.pop();
+                                    CategoriesConnection.query("select name , sum(Quantity) as catQuantity from (select categories.name,categories.id as cat_id, sum(quantity) as Quantity from sales , products ,categories where products.id=product_id and products.category_id = categories.id group by product_id ) as catSums group by cat_id ORDER BY catQuantity DESC",function(err,results){
+
+                                            console.log('mostpop:'+JSON.stringify(results[0])+'\nLeastPop:'+JSON.stringify(results.pop()))
+                                            res.render('products', {
+                                                        mostPopularProd : popularProduct,
+                                                        leastPopularProd: unPopularProduct,
+                                                        mostPop: results[0],
+                                                        leastPop: results.pop(),
+                                                        products:products,
+                                                        categories:categories
+                                                    });
+                                    })
+
+
+
+
+
+                            })
+
                         })
                         
                     })
@@ -159,7 +180,7 @@
             app.get('/sales', function (req, res) {
                 var connection = mysql.createConnection(dbOptions)
                 connection.connect();
-                connection.query("select sales.date, products.name, sales.quantity, sales.price,sales.product_id from sales,products where products.id = sales.product_id order by sales.date desc",
+                connection.query("select DATE_FORMAT(sales.date,'%d %b %y') as date, products.name, sales.quantity, sales.price,sales.product_id from sales,products where products.id = sales.product_id order by sales.date desc",
                     function(err,results){
                             console.log('Client requests sales page : ' + err)   
                     
@@ -210,4 +231,10 @@
             });
 
 
-app.listen(3000)
+
+app.listen(3100)
+
+
+             
+
+

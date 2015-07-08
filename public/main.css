@@ -19,7 +19,7 @@
 	display: inline;
 }
 #navli li{
-	margin-left: 5%;
+	margin-left: 1%;
 }
 #navli li a{
 	font-family: 'Orbitron', sans-serif;
@@ -127,8 +127,8 @@
 	background:rgba(0,0,0,0.95);
 	overflow:hidden;
 	position:relative;
-	margin-left: 0%;
-	margin-top: -1%;
+	margin-left: 3%;
+	margin-top: -1.5%;
 	width:85%;
 	border-radius: 10px;
 	border:1px solid black;
@@ -161,8 +161,8 @@
 	background:rgba(0,0,0,0.95);
 	overflow:hidden;
 	position:relative;
-	margin-left: 8%;
-	margin-top: -1%;
+	margin-left: 4%;
+	margin-top: -1.5%;
 	margin-right: -2%;
 	position: center;
 	width:85%;
@@ -477,6 +477,7 @@ body{
 }
 
 .showButton{
+	text-align: center;
 	height:auto;
 	width: 25%;
 	cursor: pointer;
@@ -505,7 +506,8 @@ body{
 	height:3%;
 	position: absolute;
 	color:orange;
-	
+	background:black;
+
 	border-radius:50px;
 	padding:5%;
 	border:2px solid white;
@@ -517,6 +519,7 @@ body{
 	transform:scale(1.2);
 	transition:all .5s linear;
 	color:white;
+	font-weight: 900;
 }
 
 #closeSpan{

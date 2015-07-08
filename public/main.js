@@ -27,30 +27,31 @@
 
             $('#backOpts').animate({marginLeft:'160px'})
             $('#backOptsProfits').animate({marginRight:'14%'})
-            $('#show').animate({right:'38%'})
+            $('.showButton').animate({right:'38%'})
 
 
 
 
         //-------- create close button for products table ----------//
 
-             $('#exit').css({visibility:'hidden',
+             $('.exitButton').css({visibility:'hidden',
                             color:'orange',
                             fontSize:'1em',
                             fontWeight:'300',
-                            width:'1%',
-                            height:'1%',
+                            width:'auto',
+                            height:'auto',
                             position:'absolute',
-                            marginLeft:'65%',
+                            marginLeft:'90%',
+                            background:'black',
+                            border:'2px solid orange',
                             zIndex:'1',
                             padding:'1%',
-                            marginTop:'-1.5%',
+                            marginTop:'1%',
+                            borderRadius:'30px',
                             textAlign:'center',
-                            opacity:'.4'
+                            
                             })
-            $('#exit span').css({
-
-            })
+            
            
 
 
@@ -162,17 +163,17 @@
                     $(target).animate({left:'1%'})
                     $('#backOpts').animate({marginLeft:'5%'})
                     $('#backOptsProfits').animate({marginRight:'8%'})
-                    $('#exit').css('visibility','visible')
+                    $('.exitButton').css('visibility','visible')
                 });
 
-                $("#exitButton").click(function(){
+                $(".exitButton").click(function(){
 
                     $(target).animate({opacity:'0'},100)  
                     $(target).css('visibility','hidden');
                     $('#backOpts').animate({marginLeft:'3%'})
                     $('#backOptsProfits').animate({marginRight:'3%'})
-                    $("#show").css('visibility','visible')
-                    $('#exit').css('visibility','hidden');
+                    $(".showButton").css('visibility','visible')
+                    $('.exitButton').css('visibility','hidden');
 
                 })                
 
