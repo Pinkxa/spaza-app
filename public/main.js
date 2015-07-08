@@ -189,7 +189,7 @@
                     $('#purchases').animate({opacity:'1'})
                     $('#purchases').css('visibility','visible');
                     $('#purchases').css({transform :'scale(1)'})
-                    $('#purchses').animate({left:'1%'})
+                    $('#purchases').animate({left:'1%'})
                     $('#exitPurchases').css('visibility','visible')
 
             })

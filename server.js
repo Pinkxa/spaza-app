@@ -183,15 +183,17 @@
              app.get('/purchases', function (req, res) {
                 var connection = mysql.createConnection(dbOptions)
                     connection.connect();
-                    connection.query("SELECT purchases.date, products.name, purchases.price, suppliers.name FROM purchases, products, suppliers WHERE products.id = purchases.product_id AND suppliers.id = purchases.supplier_id",function(Err,results){
+                    connection.query("SELECT DATE_FORMAT(purchases.date,'%d %b %y') as date, products.name as product, purchases.price, suppliers.name as supplier FROM purchases, products, suppliers WHERE products.id = purchases.product_id AND suppliers.id = purchases.supplier_id ORDER BY date",
+                        function(err,results){
 
-                    console.log('Client requests purchases page')
 
                     res.render('purchases', {
                     purchases : results
 
+                    });
+
+                    
                 });
-            });
         });
                
 

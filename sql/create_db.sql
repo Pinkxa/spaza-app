@@ -31,15 +31,12 @@ drop table if exists suppliers;
 
 create table suppliers (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(40),
-    product_id INT NOT NULL,
-    quantity INT,
-    FOREIGN KEY (product_id) REFERENCES products(id)
+    name VARCHAR(40)
 );
 
 drop table if exists stock_purchases;
 
-create table stock_purchases (
+create table purchases (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     date DATE,
     product_id INT NOT NULL,
@@ -50,11 +47,10 @@ create table stock_purchases (
 
 drop table  if exists orders_csv;
 
-create table orders_csv(
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+create table purchases_csv(
     shop VARCHAR(20),
     date DATE,
-    item_name VARCHAR(40),
+    item VARCHAR(40),
     quantity INT,
     cost DECIMAL,
     total_cost DECIMAL
@@ -62,8 +58,7 @@ create table orders_csv(
 
 drop table  if exists purchases_csv;
 
-create table purchases_csv(
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+create table sales_csv(
     day VARCHAR(20),
     date DATE,
     stock_item VARCHAR(50),
