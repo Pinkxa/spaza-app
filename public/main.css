@@ -127,8 +127,9 @@
 	background:rgba(0,0,0,0.95);
 	overflow:hidden;
 	position:relative;
-	margin-left: 0%;
+	margin-left: 8%;
 	margin-top: -1%;
+	margin-right: -2%;
 	width:85%;
 	border-radius: 10px;
 	border:1px solid black;

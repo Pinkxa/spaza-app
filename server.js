@@ -127,11 +127,7 @@
                             });
                         })
                         
-                    })
-                    
-                    
-                
-               
+                    });
             });
 
             //user posts from products page
@@ -159,7 +155,7 @@
             app.get('/sales', function (req, res) {
                 var connection = mysql.createConnection(dbOptions)
                 connection.connect();
-                connection.query("select sales.date, products.name, sales.quantity, sales.price,sales.product_id from sales,products where products.id = sales.product_id order by sales.date desc",
+                connection.query("SELECT DATE_FORMAT(sales.date,'%d %b %y') as date, products.name, sales.quantity, sales.price,sales.product_id from sales,products where products.id = sales.product_id order by sales.date desc",
                     function(err,results){
                             console.log('Client requests sales page : ' + err)   
                     
