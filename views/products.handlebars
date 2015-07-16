@@ -1,9 +1,12 @@
 <div>
+
+<button id='newProduct' type="button" class="btn btn-warning">add new product</button>
+
 <div id='backOpts'>
 
 <div  class="btn-group-vertical" id='f'><li><h3>Most Popular product</h3></li></div>
 	<div class='list-item'>
-        &nbsp{{mostPopularProd.name}}&nbsp({{mostPopularProd.Quantity}} sold)
+        &nbsp{{mostPopularProd.name}}&nbsp
 	      <div id='order'>
 	      <div class="btn-group">
   		  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -23,7 +26,7 @@
 
 <div  class="btn-group-vertical"><li><h3>Least Popular product</h3></li></div>
 	<div class='list-item' >
-        &nbsp{{{leastPopularProd.name}}}&nbsp({{{leastPopularProd.Quantity}}} sold)
+        &nbsp{{{leastPopularProd.name}}}&nbsp
 	      <div id='order'>
 	      <div class="btn-group">
   		  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -42,7 +45,7 @@
 
 
 <div  class="btn-group-vertical"><li><h3>Most Popular category</h3></li></div>
-	<div class='list-item'> &nbsp{{{mostPop.name}}}&nbsp({{{mostPop.catQuantity}}} sold)
+	<div class='list-item'> &nbsp{{{mostPop.name}}}&nbsp
 	<div id='order'>
 	<div class="btn-group">
   		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -61,7 +64,7 @@
 </div>
 
 <div  class="btn-group-vertical"><li><h3>Least Popular category</h3></li></div>
-   <div class='list-item'> &nbsp{{{leastPop.name}}}&nbsp({{{leastPop.catQuantity}}} sold)
+   <div class='list-item'> &nbsp{{{leastPop.name}}}&nbsp
    <div id='order'>
 	<div class="btn-group">
   		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -116,8 +119,8 @@
 
 
 
- <span id='showProducts' class='showButton'>View & Edit<br/>product list</span>
- <div id='exitProducts' class='exitButton' >close table</span></div>
+<span id='showProducts' class='showButton'>View &amp; Edit<br/>product list</span>
+<div id='exitProducts' class='exitButton' >close table</span></div>
 <div id='prods'>
 <div class="container">
   
@@ -126,9 +129,8 @@
 
   <form id='pf' action='products' method='post'>
 
-  <table class="table" id='productsTable'>
+  <table class="table" id='productsTable'> 
 
-   
     <thead>
       <tr>
         <th>Name</th>
@@ -136,7 +138,6 @@
         <th>Price</th>
       </tr>
     </thead>
-
 
     <tbody>
     {{#each products}}
@@ -180,15 +181,16 @@
 
           }
 
-          $('.table tr td').keypress(function(e) {
-                            
-                            var Categories =[]
+          var Categories =[]
+          {{#each categories}}
+              Categories.push('{{name}}')          
+          {{/each}}
 
-                            {{#each categories}}
-                                Categories.push('{{name}}')          
-                            {{/each}}
+          $('.table tr').keypress(function(e) {
+                            
+                            
                        
-                            var catVal = $('.table tr td:nth-of-type(2)').find('input').val();
+                            var catVal = $(this).children('td:nth-of-type(2)').find('input').val();
 
                             
 
@@ -197,7 +199,7 @@
                                  
                                     if(Categories.indexOf(catVal) < 0)
                                     {
-
+                                        alert('non existant category')
                                         $("#dialog").css({position:'fixed',zIndex:'50',width:'auto',height:'auto',backgroundColor:'rgba(255,153,0,0.9)',border:'3px solid black',padding:'1%',color:'black',fontSize:'1vw',borderRadius:'20px',listStyle:'none',visibility:'visible',marginLeft:'auto',marginTop:'-60%',left:'40%',right:'40%',textAlign:'center',transition:'all .5s linear'})
 
                                         var catStr =''
@@ -224,13 +226,13 @@
                                     else
                                     { 
                                       //alert('index :'+Categories.indexOf(catVal)+' val:'+catVal)
-                                        var prodId   =$(this).parent().attr('id')
-                                        var newName  =$(this).parent().find('td:first-of-type').find('input').val();
-                                        var newPrice =$(this).parent().find('td:nth-of-type(3)').find('input').val();
-                                        var newCat   =$(this).parent().find('td:nth-of-type(2)').find('input').val();
+                                        var prodId   =$(this).attr('id')
+                                        var newName  =$(this).find('td:first-of-type').find('input').val();
+                                        var newPrice =$(this).find('td:nth-of-type(3)').find('input').val();
+                                        var newCat   =$(this).find('td:nth-of-type(2)').find('input').val();
 
                                         var data     ={id:prodId,name:newName,price:newPrice,cat:newCat}
-
+                                        alert(JSON.stringify(data));
                                         $.post('/products',data,function(){alert('saved')})
                                     }
                                     
@@ -244,9 +246,32 @@
 
 
                         });
-                         $('#closeSpan').click(function(){
                 
-                           })
+                  $('#newProduct').click(function(){
+                    $("#dialog").css({position:'fixed',zIndex:'50',width:'auto',height:'auto',backgroundColor:'rgba(255,153,0,0.9)',border:'3px solid black',padding:'1%',color:'black',fontSize:'1vw',borderRadius:'20px',listStyle:'none',visibility:'visible',marginLeft:'auto',marginTop:'-60%',left:'40%',right:'40%',textAlign:'center',transition:'all .5s linear'})
+                    var formHtml ="<form id='pf' action='products' method='post'>"+
+                                  "Name <input type='text' name='productName' placeholder='product name'> "+
+                                  "Category <select id='categoryOptions'> "
+                                  Categories.forEach(function(category){
+                                      formHtml+=("<option value=\'"+category+"\'>"+category+"</option>");
+                                  })
+
+                                  formHtml+="</select></form>"
+                                  formHtml+="<div id='close'>right click close</div>"
+              
+                    $('#dialog').children().css({
+                                            background:'black',
+                                            color:'white',
+                                            borderRadius:'3px',
+                                            border:'1px solid orange'
+                                          })
+                    $('#dialog').html(formHtml)
+
+                    var $options = $("#categoryOptions");
+                    f
+
+                  })
+                        
           
           
           

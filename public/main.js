@@ -123,14 +123,15 @@
 
 
         //--------------  when  editing  ---------------------//
-            $('body').click(function(){
+            $('#dialog').mousedown(function(e){ 
+                        if( e.button == 2 ) { 
 
-                        if($('div').css('webkitFilter') !='blur(0px)sepia(0)'){
-                            $('div').css({'webkitFilter':'blur(0px)sepia(0)'})
-                            $('#dialog').css('visibility','hidden')
-                        }                        
-                        $('#dialog').css({'visibility':'hidden'})
-
+                                if($('div').css('webkitFilter') !='blur(0px)sepia(0)'){
+                                    $('div').css({'webkitFilter':'blur(0px)sepia(0)'})
+                                    $('#dialog').css('visibility','hidden')
+                                }                        
+                                $('#dialog').css({'visibility':'hidden'})
+                    }
 
 
                });
@@ -200,9 +201,22 @@
             })
             */
 
-
-
-            
+            $('#home').css({background:'orange',
+                            borderRadius:'50px',
+                            padding:'30%',
+                            marginLeft:'20%',
+                            marginTop:'2%',
+                            overflow:'hidden',
+                            
+                            boxShadow:'1px 1px 3px 1px black',
+                            border:'5px solid black',
+                            animation:'bounce 1s infinite alternate'})
+             $('#home tr ').css({padding:'50%',
+                                 fontWeight:'900'
+                                 })
+             $('#home tr td').css({fontFamily:'Orbitron',
+                                 fontWeight:'900'
+                                 })
 
 
         });
