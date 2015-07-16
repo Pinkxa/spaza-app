@@ -228,6 +228,31 @@
                 });
             });
 
+             //setup the products handlers
+            app.get('/products', products.show);
+            app.get('/products/edit/:id', products.get);
+            app.post('/products/update/:id', products.update);
+            app.post('/products/add', products.add);
+        
+            app.get('/products/delete/:id', products.delete);
+
+            //setup the sales handlers
+            app.get('/sales', sales.show);
+            app.get('/sales/edit/:id', sales.get);
+            app.post('/sales/update/:id', sales.update);
+            app.post('/sales/add', sales.add);
+            
+            app.get('/sales/delete/:id', sales.delete);
+
+            //setup the purchases handlers
+            app.get('/purchases', purchases.show);
+            app.get('/purchases/edit/:id', purchases.get);
+            app.post('/purchases/update/:id', purchases.update);
+            app.post('/purchases/add', purgases.add);
+
+            app.get('/purchases/delete/:id', purchases.delete);
+
+
 
 
 app.listen(3100)

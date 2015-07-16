@@ -64,7 +64,7 @@
 }
 .list-item{
 	background:black;
-	color:white;
+	color:orange;
 	width: 162%;
 	height: auto;
     font-family: 'Dosis', sans-serif;
@@ -72,8 +72,8 @@
     display: none;
     margin-left: -30%;
     margin-top: -25;   
-    font-weight: 100;
-    font-size: 120%;
+    font-weight: 900;
+    font-size: 2vw;
     padding-top: 1.5%;
     transform:scale(.6);
 	transition:transform 2s ease-in-out;
@@ -101,7 +101,7 @@
 	background:black;
 	height:200%;
 	width:20%;
-	margin-top: -58.5%;
+	margin-top: -55%;
 	float:right;
     margin-right: 0;
 	border-radius: 5%;
@@ -128,8 +128,8 @@
 	overflow:hidden;
 	position:relative;
 
-	margin-left: 8%;
-	margin-top: -1%;
+	margin-left: 3%;
+	margin-top: -1.5%;
 	margin-right: -2%;
 
 	width:85%;
@@ -279,7 +279,7 @@ input{
 }
 .table tr td span{
 	visibility: hidden;
-	color:grey;
+	color:white;
 	margin-left:5%;
 }
 .table tr td span:hover,.table tr td div:hover{
@@ -289,55 +289,6 @@ input{
 	border-radius: 20px;
 	padding:.2%;
 	letter-spacing: 2px;
-}
-
-.table2 tr td:hover{
-	
-	background:black
-	color:black;
-	box-shadow: 2px 3px 80px 5px orange;
-}
-
-.table2 tr td{
-	color:white;
-	font-size: 1.5vw;
-}
-.table2 tr td div{
-	visibility: hidden;
-	margin-left: 5%;
-	color:grey;
-
-}
-.table2 tr td input{
-	padding:1%;
-	letter-spacing: 0.5px
-	
-
-}
-.table2 tr td input:focus{
-	outline:0;
-	background:rgba(255,153,0,0.2);
-	letter-spacing: 0.5px
-}
-.table2 tr td span{
-	visibility: hidden;
-	color:grey;
-	margin-left:5%;
-}
-.table2 tr td span:hover,.table2 tr td div:hover{
-	box-shadow:1px 1px 2px 1px black;
-	transform:none;
-	transition:none;
-	border-radius: 20px;
-	padding:.2%;
-	letter-spacing:0.5px
-}
-
-.table2 tr td:hover{
-	
-	background:black
-	color:black;
-	box-shadow: 2px 3px 80px 5px orange;
 }
 
 
@@ -367,8 +318,7 @@ input{
 	font-weight: 900;
 	margin-left: -15%;
 	margin-top: -2%;
-	font-family: 'Trade Winds', cursive;
-
+	font-family: 'Orbitron', sans-serif;
 
 }
 
@@ -541,3 +491,39 @@ body{
 #dialog{
 	transition:all 1s linear;
 };
+
+
+
+.slider{
+	margin-left: 30%;
+	border:3px solid orange;
+	background:orange;
+	align:center;
+	
+	box-shadow: 10px 10px 5px grey;
+}
+#home{
+	animation:bounce 3s infinite alternate;
+}
+@-webkit-keyframes bounce{
+	0%{
+		box-shadow:1px 1px 10px 5px orange;
+		transform:translateY(10px);
+		transition:transform 1s linear;;
+	}
+	
+	100%{
+
+		box-shadow:1px 1px 100px 30px black;
+		transform:scale(1.05) translateY(-10px);
+		transition:transform 1s linear;;
+	}
+}
+
+#newProduct{
+	margin-left: -15%;
+	margin-top:-2%;
+	padding:1%;
+	color:black;
+	font-weight: 900;
+}
